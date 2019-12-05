@@ -10,6 +10,7 @@ export class StockItemComponent implements OnInit {
   public code:string;
   public price:number;
   public previousPrice:number;
+  public positiveChange:boolean;
   constructor() { }
 
   ngOnInit() {
@@ -17,6 +18,7 @@ export class StockItemComponent implements OnInit {
     this.code='TS';
     this.price=85;
     this.previousPrice=80;
+    this.positiveChange= this.previousPrice < this.price;
   }
 
 }
