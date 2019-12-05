@@ -3,4 +3,7 @@
     <div class="price"
         [class]="positiveChange ? 'positive' : 'negative'"> ${{price}}
     </div>
+
+    <button (click)="toggleFav()" [disabled]="favourite">Add to favourite</button>
+
   </div>
