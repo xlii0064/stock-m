@@ -1,7 +1,7 @@
 <div class="stock-container">
     <div class="name"><h3>{{stock.name}}</h3> - <h4>{{stock.code}}</h4></div>
     <div class="price"
-        [ngClass]="stockClasses">${{stock.price}}
+        [ngStyle]="stockStyle">${{stock.price}}
     </div>
 
     <button (click)="toggleFav()" [disabled]="stock.favourite">Add to favourite</button>

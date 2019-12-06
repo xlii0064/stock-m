@@ -8,17 +8,15 @@ import { Stock } from 'src/app/model/stock';
 })
 export class StockItemComponent implements OnInit {
   public stock:Stock;
-  public stockClasses;
+  public stockStyle;
   constructor() { }
 
   ngOnInit() {
     this.stock=new Stock("Test Stock","TSC",85,80);
     let largeChange=Math.abs((this.stock.price/this.stock.previousPrice)-1)>0.01;
-    this.stockClasses={
-      "positive":this.stock.isPositiveChange(),
-      "negative":!this.stock.isPositiveChange(),
-      "large-change":largeChange,
-      "small-change":!largeChange
+    this.stockStyle={
+      "color":this.stock.isPositiveChange() ? "darkred" : "lightgreen",
+      "font-size":largeChange ? "1.2em" :"0.8em"
     }
   }
 
