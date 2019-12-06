@@ -30,4 +30,8 @@ export class StockItemComponent implements OnInit {
     this.stocks[index].favourite = !this.stocks[index].favourite;
   }
 
+  traceByCode(stock:Stock):string{
+    return stock.code;
+  }
+
 }
