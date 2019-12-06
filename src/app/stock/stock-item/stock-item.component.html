@@ -1,9 +1,9 @@
-<div class="stock-container">
+<div class="stock-container" *ngFor="let stock of stocks;index as i">
     <div class="name"><h3>{{stock.name}}</h3> - <h4>{{stock.code}}</h4></div>
     <div class="price"
     [class]="stock.isPositiveChange() ? 'positive':'negative' " > ${{stock.price}}
     </div>
 
-    <button (click)="toggleFav()" *ngIf="!stock.favourite">Add to favourite</button>
+    <button (click)="toggleFav(i)" *ngIf="!stock.favourite">Add to favourite</button>
 
   </div>
