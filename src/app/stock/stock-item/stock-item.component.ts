@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Stock } from 'src/app/model/stock';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-stock-item',
@@ -9,6 +10,7 @@ import { Stock } from 'src/app/model/stock';
 export class StockItemComponent {//implements OnInit {
   //public stock:Stock;
   @Input() public stock:Stock;
+  @Output() private toggleFavor:EventEmitter<Stock>=new EventEmitter();
   public stocks:Array<Stock>=[]; //typescript array 需要初始化才能执行array函数操作
   //public stockStyle;
   constructor() { }
@@ -27,8 +29,9 @@ export class StockItemComponent {//implements OnInit {
   //   */
   // }
 
-  toggleFav(index:number){
-    this.stocks[index].favourite = !this.stocks[index].favourite;
+  toggleFav(){
+    this.toggleFavor.emit(this.stock);
+    //this.stocks[index].favourite = !this.stocks[index].favourite;
   }
 
   traceByCode(stock:Stock):string{

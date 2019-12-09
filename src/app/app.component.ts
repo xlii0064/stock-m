@@ -15,4 +15,7 @@ export class AppComponent implements OnInit{
   ngOnInit():void{
     this.stockObj=new Stock("Test Stock","TSC",85,80);
   }
+  toggleFav(){
+    this.stockObj.favourite= !this.stockObj.favourite;
+  }
 }
