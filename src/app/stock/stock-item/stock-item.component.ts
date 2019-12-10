@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { Stock } from 'src/app/model/stock';
 import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-stock-item',
   templateUrl: './stock-item.component.html',
-  styleUrls: ['./stock-item.component.css']
+  styleUrls: ['./stock-item.component.css'],
+  changeDetection:ChangeDetectionStrategy.Default
 })
 export class StockItemComponent {//implements OnInit {
   //public stock:Stock;
@@ -32,6 +33,9 @@ export class StockItemComponent {//implements OnInit {
   toggleFav(){
     this.toggleFavor.emit(this.stock);
     //this.stocks[index].favourite = !this.stocks[index].favourite;
+  }
+  changePrice(){
+    this.stock.price+=5;
   }
 
   traceByCode(stock:Stock):string{
