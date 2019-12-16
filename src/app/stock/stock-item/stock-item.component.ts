@@ -10,7 +10,7 @@ import { EventEmitter } from '@angular/core';
 })
 export class StockItemComponent {//implements OnInit {
   //public stock:Stock;
-  @Input() public stock:Stock;
+  @Input() stock:Stock;
   @Output() private toggleFavor:EventEmitter<Stock>=new EventEmitter();
   public stocks:Array<Stock>=[]; //typescript array 需要初始化才能执行array函数操作
   //public stockStyle;

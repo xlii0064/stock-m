@@ -1,5 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {Stock} from './model/stock';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -10,22 +11,10 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'stock-m'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('stock-m');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('stock-m app is running!');
+  it(`should have an initialized stock object on ngInit`, () => {
+    const appCom=new AppComponent();
+    expect(appCom.stockObj).toBeUndefined();
+    appCom.ngOnInit();
+    expect(appCom.stockObj).toEqual(new Stock("Test Stock","TSC",85,80));
   });
 });
