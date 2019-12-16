@@ -4,7 +4,7 @@
     <div class="price"
     [class]="stock.isPositiveChange() ? 'positive':'negative' " > ${{stock.price}}
     </div>
-
-    <button (click)="toggleFav()" *ngIf="!stock.favourite">Add to favourite</button>
-    <button (click)="changePrice()">Add five</button>
+    <!--<button (click)="toggleFav()" *ngIf="!stock.favourite">Add to favourite</button>
+    <button (click)="changePrice()">Add five</button>  -->
+    <ng-content></ng-content>
   </div>

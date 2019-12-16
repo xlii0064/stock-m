@@ -3,7 +3,10 @@
     Fantastic {{title}}!
   </h1>
   <app-stock-item [stock]="stockObj"
-      (toggleFavor)="toggleFav()"></app-stock-item>
+      (toggleFavor)="toggleFav()">
+      <button (click)="toggleFav()" *ngIf="!stockObj.favourite">Add to favourite</button>
+    </app-stock-item>
+  <app-stock-item [stock]="stockObj">no button</app-stock-item>
   <button (click)="changeStock()">Change Stock</button>
   <button (click)="changePrice()">Change Price</button>
 </div>
