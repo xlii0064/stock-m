@@ -36,7 +36,20 @@ describe('AppComponent', () => {
     it("should initialize stocks",()=>{
       const title=fixture.debugElement.query(By.css('h1'));
       expect(title.nativeElement.textContent.trim()).toEqual('Fantastic Stock Market!');
-    })
+    });
+
+    it("should toggle favourite button",()=>{
+      expect(component.stockObj.favourite).toBeFalsy();
+      let btn=fixture.debugElement.query(By.css('button'));
+      //expect(btn).toBeUndefined();
+      btn.triggerEventHandler('click',null);
+
+      fixture.detectChanges();
+
+      expect(component.stockObj.favourite).toBeTruthy();
+      btn=fixture.debugElement.query(By.css('button'));
+      //expect(btn).toBeNull();
+    });
 
   });
 
