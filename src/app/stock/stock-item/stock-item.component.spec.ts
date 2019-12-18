@@ -21,10 +21,11 @@ describe('StockItemComponent', () => {
     fixture.detectChanges();
   });
 
+  //bug在这里，name直接log出来是有内容的，但是调用textContext以后变成undefined.不明白哪里有问题
   it ("should create stock and render data",()=>{
-    const name=fixture.debugElement.query(By.css('.stock-container.name'));
-    expect(name.nativeElement.textContext).toEqual("Test Stock - TSC");
-    const price=fixture.debugElement.query(By.css('.price.positive'));
+    const name=fixture.nativeElement.querySelector('.stock-container .name h3');
+    expect(name.textContext).toEqual("Test Stock");
+    const price=fixture.debugElement.query(By.css('.positive'));
     expect(price.nativeElement.textContext).toEqual("$85");
   })
 });
